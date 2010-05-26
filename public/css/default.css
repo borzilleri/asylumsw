@@ -1,0 +1,27 @@
+body {
+	font-size             : 100%; /* Assume 1em == 16px */
+	line-height           : 1.1em;
+	font-family           : Helvetica, Verdana, Arial, Sans-Serif;
+	color                 : black;
+	background-color      : white;
+	margin                : 0px;
+	padding               : 0px;
+}
+
+ul#MainNav {
+	list-style-type       : none;
+}
+ul#MainNav li {
+	display               : inline;
+}
+
+body#Home li#home-tab,
+body#Blog li#blog-tab,
+body#Project li#project-tab,
+body#Quote li#quote-tab,
+body#About li#about-tab {
+	border                : 1px solid black;
+	background-color      : #ddd;
+}
+
+
