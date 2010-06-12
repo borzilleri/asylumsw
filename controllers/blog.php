@@ -12,7 +12,7 @@ class blog extends Controller_Core {
 		// Find & Retrieve most recent post.
 		$post = new BlogPost($this->findLatestPost());
 		
-		$view->post = $post;
+		$view->posts = array($post);
 		$view->render(true);
 	}
 

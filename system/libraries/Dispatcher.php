@@ -46,7 +46,7 @@ class Dispatcher {
 		
 		// Parse our URI into an array array that we can use.
 		$requestURI = explode('?', $_SERVER['REQUEST_URI']);
-		$requestURI = explode('/', $requestURI);
+		$requestURI = explode('/', $requestURI[0]);
 		$scriptName = explode('/', $_SERVER['SCRIPT_NAME']);
 		$commandArray = array_diff_assoc($requestURI, $scriptName);
 		$commandArray = array_values($commandArray);

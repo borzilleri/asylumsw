@@ -3,15 +3,16 @@ $header = new View('header');
 $header->pageType = 'Blog';
 
 $footer = new View('footer');
-$header->render(true);?>
+$header->render(true);
 
-<h2 class="post_title"><a href="<?=slimVC::config('core.site_uri');?>/blog/post/<?=$post->slug;?>"><?=$post->title;?></a></h2>
-<div>
-	<span class="post_date"><?=$post->date;?></span>
-</div>
+$singlePost = new View('blog/single');
+?>
 
-<div class="post_body">
-	<?=$post->body;?>
-</div>
+<h1>Ravings of a Madman</h1>
+
+<? foreach($posts as $post) {
+	$singlePost->post = $post;
+	$singlePost->render(true);
+} ?>
 
 <?=$footer->render();?>

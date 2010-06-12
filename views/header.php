@@ -4,17 +4,27 @@
 	<head>
 		<meta charset="utf-8" />		
 		<title>Asylum Software</title>
+		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans+Std+Light' rel='stylesheet' type='text/css'>
+		<link href=' http://fonts.googleapis.com/css?family=Nobile' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
 		<link rel="stylesheet" href="<?=sliMVC::config('core.site_uri');?>/css/default.css" type="text/css" charset="utf-8" />
+		<script type="text/javascript">
+if ( window.addEventListener ) {
+	var state = 0, konami = [38,38,40,40,37,39,37,39,66,65];
+	window.addEventListener("keydown", function(e) {
+		if ( e.keyCode == konami[state] ) state++;
+		else state = 0;
+		if ( state == 10 ) {
+			state = 0;
+			var v = document.getElementById('fib').style.display;
+			if( 'block' == v )
+				document.getElementById('fib').style.display = 'none';
+			else
+				document.getElementById('fib').style.display = 'block';
+		}
+	}, true);
+}
+		</script>
 	</head>
 	<body id="<?=$pageType;?>">
-
-	<h1><a href="<?=sliMVC::config('core.site_uri');?>">Asylum Software</a></h1>
-	<ul id="MainNav">
-		<li id="home-tab"><a href="/">Home</a></li>
-		<li id="blog-tab"><a href="/blog">Blog</a></li>
-		<li id="project-tab">Projects</li>
-		<li id="quote-tab">Quotes</li>
-		<li id="about-tab">About</li>
-	</ul>
-
-<hr />
