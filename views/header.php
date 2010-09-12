@@ -3,12 +3,11 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />		
-		<title>Asylum Software</title>
-		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans+Std+Light' rel='stylesheet' type='text/css'>
-		<link href=' http://fonts.googleapis.com/css?family=Nobile' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
-
-		<link rel="stylesheet" href="<?=sliMVC::config('core.site_uri');?>/css/default.css" type="text/css" charset="utf-8" />
+		<title><?=$this->pageTitle;?></title>
+		<link rel="stylesheet" type="text/css"
+			href="http://fonts.googleapis.com/css?family=Inconsolata" />
+		<link rel="stylesheet" type="text/css"
+			href="<?=sliMVC::config('core.site_uri');?>/css/default.css" />
 		<script type="text/javascript">
 if ( window.addEventListener ) {
 	var state = 0, konami = [38,38,40,40,37,39,37,39,66,65];
@@ -28,3 +27,9 @@ if ( window.addEventListener ) {
 		</script>
 	</head>
 	<body id="<?=$pageType;?>">
+		<header>
+			<h1><?=$this->pageHeader;?></h1>
+			<nav>
+				<?$nav=new View(get_class(sliMVC::$controller).'/nav');$nav->render(true);?>
+			</nav>
+		</header>

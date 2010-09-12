@@ -1,18 +1,18 @@
 <?php defined('SYS_ROOT') OR die('Direct script access prohibited');
 $header = new View('header');
 $header->pageType = 'Blog';
-
-$footer = new View('footer');
 $header->render(true);
-
-$singlePost = new View('blog/single');
 ?>
 
-<h1>Ravings of a Madman</h1>
+<nav>
+	<ul>
+	<? foreach($posts as $p): ?>
+		<li>
+			<a href="/blog/<?=$p->slug;?>">/<?=$p->title;?></a>
+			<time datetime="<?=$p->datetime;?>"><?=$p->date;?></time>
+		</li>
+	<? endforeach; ?>
+	</ul>
+</nav>
 
-<? foreach($posts as $post) {
-	$singlePost->post = $post;
-	$singlePost->render(true);
-} ?>
-
-<?=$footer->render();?>
+<?$footer=new View('footer');$footer->render(true);?>

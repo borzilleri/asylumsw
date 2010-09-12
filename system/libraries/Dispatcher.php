@@ -45,29 +45,25 @@ class Dispatcher {
 		$customRoutes = sliMVC::config('routes');
 		
 		// Parse our URI into an array array that we can use.
+		// for the requestURI we dont want the query string,
+		// This is just a fast way of grabbing everything before the query string.
 		$requestURI = explode('?', $_SERVER['REQUEST_URI']);
 		$requestURI = explode('/', $requestURI[0]);
 		$scriptName = explode('/', $_SERVER['SCRIPT_NAME']);
+		
 		$commandArray = array_diff_assoc($requestURI, $scriptName);
 		$commandArray = array_values($commandArray);
 		
-		/**
-		 * Build our array back into the route, using our default route if the
-		 * user did not supply one (the "index" page, usually)
-		 * 
-		 * Then check for any custom routing rules that may be specified.
-		 * This also handles our default routing scenario.
-		 * 
-		 * If we found one, replace our command array with the new route.
-		 *
-		 * TODO: Put this in a separate method, and make it more robust.
-		 * (ie - regex-style replacement)
-		 */
 		$thisRoute = implode('/', $commandArray);
 		$thisRoute = empty($thisRoute) ? self::DEFAULT_ROUTE_KEY : $thisRoute;
-		if( !empty($customRoutes[$thisRoute]) ) {
-			$commandArray = explode('/', $customRoutes[$thisRoute]);
+		
+		foreach($customRoutes as $sourceRoute => $targetRoute) {
+			if( preg_match('/^'.str_replace('/','\/',$sourceRoute).'$/', $thisRoute) ) {
+				$thisRoute = preg_replace('/'.str_replace('/','\/',$sourceRoute).'/', $targetRoute, $thisRoute);
+				break;
+			}
 		}
+		$commandArray = explode('/', $thisRoute);
 				
 		// Finally, set our variables appropriately
 		if( empty($commandArray[0]) ) {

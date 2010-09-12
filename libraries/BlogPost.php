@@ -7,7 +7,7 @@
  */
 class BlogPost {
 	protected $title;
-	protected $date;
+	protected $timestamp;
 	protected $body;
 	
 	protected $rawText;
@@ -22,8 +22,11 @@ class BlogPost {
 
 	public function __get($val) {
 		switch($val) {
-			case 'title':
+			case 'datetime':
+				return date(sliMVC::config('blog.datetime_format'), (false===$this->timestamp?time():$this->timestamp));
 			case 'date':
+				return date(sliMVC::config('blog.date_format'), (false===$this->timestamp?time():$this->timestamp));
+			case 'title':
 			case 'body':
 			case 'slug':
 				return $this->$val;
@@ -48,7 +51,7 @@ class BlogPost {
 		if( $parseFile ) {
 			$this->title = $this->parseTitle();
 			$this->body = $this->parseBody();
-			$this->date = $this->parseDate();
+			$this->timestamp = $this->parseDate();
 		}
 	}
 
@@ -81,7 +84,7 @@ class BlogPost {
 				$timestamp = $date;
 			}
 		}
-
+		
 		// Next, attempt to stat the file for it's ctime
 		if( false === $timestamp && file_exists($path) ) {
 			$date = filectime($path);
@@ -91,7 +94,7 @@ class BlogPost {
 		}
 
 		
-		return date(sliMVC::config('blog.date_format'), (false!==$timestamp?$timestamp:time()));
+		return $timestamp;
 	}
 }
 ?>

@@ -15,4 +15,5 @@ $config['posts_path'] = 'blog';
  * This should be a string compatable with PHPs date() method.
  */
 $config['date_format'] = 'Y-m-d H:j:s';
+$config['datetime_format'] = 'c';
 ?>

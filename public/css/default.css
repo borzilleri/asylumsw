@@ -1,160 +1,139 @@
-/**
-http://colorschemedesigner.com/#0F61ThWhWg0g0
-http://colorschemedesigner.com/#0F41ThWhWg0g0
-**/
+/* COLORS:
+ * WHITE : ccc
+ * GREY  : 666
+ * BLACK : 000
+ * RED   : c00
+ * ORANGE: c60
+ * YELLOW: cc6
+ * GREEN : 060
+ * BLUE  : 66c
+ */
 html * {
 	margin                : 0;
 	padding               : 0;
 }
-
 body {
 	font-size             : 100%; /* Assume 1em == 16px */
 	line-height           : 1.1em;
-	font-family           : Verdana, Arial, Sans-Serif;
-	color                 : black;
-	background-color      : white;
+	font-family           :'Inconsolata', monospace;
+	color                 : #ccc;
+	background-color      : #000;
 }
-
+/*a:visited {
+	color                 : #0c0;
+	background-color      : inherit;
+}*/
 a {
+	color                 : #000;
+	background-color      : #0c0;
 	text-decoration       : none;
-	color                 : #ab9557;
-	border-bottom         : 1px dotted #766127;
+	padding               : 2px;
 }
-
-#Footer {
-	margin                : 20px 0 0 0;
-	text-align            : center;
-	font-size             : .65em;
-}
-
-h1 {
-	font-family           : 'Nobile', Helvetica, sans-serif;
-	text-align            : center;
-	font-size             : 2.25em;
-	margin                : 45px 0 20px 0;
-	color                 : #8f523f;
-}
-h1 a {
-	color                 : inherit;
-	border                : none;
-}
-
-h2 {
-	text-align            : center;
-	font-size             : 1.15em;
-	margin                : 20px 0 30px 0;
-	color                 : #763a27;
-}
-
-#Home ul {
-	list-style-type       : none;
-	width                 : 70%;
-	margin                : 0 auto;
-}
-#Home ul ul {
-	width                 : 90%;
-}
-
-#Home li {
-	margin                : 10px 0 20px 0;
-}
-#Home li li {
-	margin                : 5px 0px;
-	font-size             : .9em;
-}
-
-#Home li h3 {
-	font-family           : 'Josefin Sans Std Light', Verdana, sans-serif;
-	font-size             : 1.4em;
-	font-style            : italic;
-	color                 : #2b495b;
-	display               : inline;
-}
-
-#BlogPost h2 {
-	font-size             : 1.25em;
-	text-align            : left;
-	margin-left           : 100px;
-	font-weight           : normal;
-}
-#BlogPost h2 a {
-	color                 : inherit;
-}
-
-.post_container {
-	margin-left           : 100px;
-	width                 : 500px;
-}
-
-.post_body h2,h3,h4,h5,h6 {
-	color                 : black;
-	text-align            : center;
-	font-weight           : normal;
-	margin                : 15px 0 5px 0;
-}
-.post_container ul, .post_container ol {
-	margin                : 5px 0px 5px 50px;
-}
-.post_container li {
-	margin                : 3px 0;
-}
-.post_container blockquote {
-	font-style            : italic;
-	font-size             : small;
+body > nav {
+	width                 : 600px;
 	margin                : 10px 20px;
-	padding               : 5px;
-	background-color      : #f3f3f3;
-	border                : 1px dotted #2b495b;
+}
+body > nav li {
+	list-style-type       : none;
+	margin                : 5px 0;
+
+	font-size             : 1.4em;
+	line-height           : 125%;
+}
+body > nav li time {
+	float                 : right;
+	font-size             : smaller;
+	margin-right          : 5px;
 }
 
-.post_container pre {
-	font-face             : 'Inconsolata', Courier, monospace;
-	margin                : 5px 20px;
-	padding               : 5px;
-	background-color      : #f3f3ff;
-	border                : 1px dashed #2b495b;
+body > header {
+	margin                : 10px;
+}
+body > header h1 {
+	font-size             : 2em;
+}
+body > header nav ul {
+	margin-top            : 10px;
+	list-style-type       : none;	
+}
+body > header nav li {
+	display               : inline;
+	margin-right          : -5px;
 }
 
-.post_container .post_date {
-	font-size             : .75em;
+#Home article {
+	margin                : 10px 30px;
+	width                 : 70%;
+	font-size             : 1.25em;
+	line-height           : 1.1em;
 }
 
-.post_container .post_body {
-}
-
-.post_container .post_body > p {
-	margin                : 15px 5px;
+footer {
+	margin-top            : 20px;
+	text-align            : center;
 	font-size             : .8em;
 }
-
-#BlogBanner {
-	padding               : 10px;
-	text-align            : right;
-	border                : 1px solid #f3f3f3;
-	background-color      : #fcfcfc;
-	position              : absolute;
-	top                   : 0;
-	right                 : 0;
-}
-#BlogBanner h2 {
-	font-size             : 1em;
-	margin                : 0;
-	padding               : 0;
-}
-#BlogBanner span {
-	font-size             : .6em;
-}
-
 #fib {
-	display: none;
-	width: 800px;
-	height: 495px;
-	opacity: .25;
+	display               : none;
+	width                 : 800px;
+	height                : 495px;
+	opacity               : .25;
 
-	background-image: url('../images/fibonacci_spiral.png');
-	background-repeat: no-repeat;
+	background-image      : url('../images/fibonacci_spiral.png');
+	background-repeat     : no-repeat;
 
-	position: absolute;
-	left: 0;
-	top: 0;
+	position              : absolute;
+	left                  : 0;
+	top                   : 0;
+}
+
+#BlogPost article {
+	width                 : 500px;
+	margin-left           : 50px;
+}
+#BlogPost article header {
+	margin-left           : -40px;
+}
+#BlogPost article header h1 {
+	margin-left           : -10px;
+	padding               : 5px 0px 5px 10px;
+	background-color      : #c60;
+	color                 : #000;
+}
+#BlogPost article header time {
+	font-size             : .8em;
+}
+#BlogPost article > h1, #BlogPost article > h2,
+#BlogPost article > h3, #BlogPost article > h4,
+#BlogPost article > h5, #BlogPost article > h6 {
+	font-weight           : normal;
+	margin-top            : 10px;
+	padding               : 5px 0 5px 50px;
+	background-color      : #66c;
+	color                 : #000;
+}
+#BlogPost article p {
+	margin                : 15px 5px;
+	font-size             : 1em;
+	line-height           : 125%;
+}
+#BlogPost article ul, #BlogPost article ol {
+	margin                : 5px 0px 5px 50px;
+}
+#BlogPost article li {
+	margin                : 3px 0;
+}
+#BlogPost article blockquote {
+	font-style            : italic;
+	font-size             : smaller;
+	margin                : 10px 20px;
+	padding               : 5px 8px;
+	border                : 1px dashed #c60;
+	color                 : #cc6;
+}
+#BlogPost article pre {
+	margin                : 5px 20px;
+	padding               : 5px 8px;
+	border                : 1px dashed #c60;
+	color                 : #c00;
 }
